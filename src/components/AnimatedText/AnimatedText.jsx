@@ -57,7 +57,7 @@ export default function AnimatedText() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center text-6xl font-bold leading-tight space-y-4">
+    <div className="flex flex-col items-center font-bold leading-tight space-y-4">
       {["BAGUS", "PRASETYA", "RAMADHAN"].map((word, index) => (
         <span
           key={index}
