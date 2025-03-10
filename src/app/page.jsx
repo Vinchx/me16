@@ -5,7 +5,6 @@ import AnimatedText from "@/components/AnimatedText/AnimatedText";
 
 export default function Home() {
   return (
-    
     /* Div utama */
     <div>
       {/* halaman pertama */}
@@ -14,6 +13,7 @@ export default function Home() {
         <div>
           <AnimatedText />
         </div>
+        <div></div>
       </div>
     </div>
   );
