@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="relative ">
       {/* Hero Section */}
-      <div className="relative flex items-center justify-center h-screen max-w-full contain-content">
+      <div className="relative flex items-center justify-center h-screen max-w-full contain-content conta">
         {/* Particles as Background */}
         <div className="absolute inset-0 z-0">
           <Particles
