@@ -1,5 +1,7 @@
 import Lanyard from "@/components/Lanyard/Lanyard";
 import ScrollVelocity from "@/components/ScrollVelocity/ScrollVelocity";
+import ScrollVelocity2 from "@/components/ScrollVelocity/ScrollVelocity2";
+import ScrollVelocity3 from "@/components/ScrollVelocity/ScrollVelocity3";
 import Particles from "@/components/Particles/Particles";
 import AnimatedText from "@/components/AnimatedText/AnimatedText";
 import BlurText from "@/components/BlurText/BlurText";
@@ -14,14 +16,17 @@ export default function Home() {
       </div>
 
       {/* scroll velocity */}
-      <div className="absolute w-full h-full -z-10">
-        <ScrollVelocity />
+      <div className="absolute left-[8.5rem]  -translate-y-1/2 rotate-90 origin-left -z-10 w-[300vh]">
+        <ScrollVelocity2 />
+      </div>
+      <div className="absolute right-[9rem]  -translate-y-1/2 -rotate-90 origin-right -z-10 w-[300vh]">
+        <ScrollVelocity3 />
       </div>
 
       {/* Halaman pertama */}
       <div className="relative z-10 min-h-screen flex items-center justify-evenly">
         {/* Animasi text dan foto */}
-        <div className="flex md:flex-row items-center gap-x-10">
+        <div className="flex md:flex-row items-center gap-x-[22rem]">
           {/* Animasi text */}
           <div className="text-[4.5em] text-center md:text-left">
             <AnimatedText />
