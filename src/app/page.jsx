@@ -19,7 +19,7 @@ export default function Home() {
       <div className="absolute left-[8.5rem]  -translate-y-1/2 rotate-90 origin-left -z-10 w-[300vh]">
         <ScrollVelocity2 />
       </div>
-      <div className="absolute right-[9rem]  -translate-y-1/2 -rotate-90 origin-right -z-10 w-[300vh]">
+      <div className="absolute right-[8.5rem]  -translate-y-1/2 -rotate-90 origin-right -z-10 w-[300vh]">
         <ScrollVelocity3 />
       </div>
 
