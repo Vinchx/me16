@@ -6,13 +6,16 @@
 .warna {
   color: #211951, #836FFF, #15f5ba, #f0f3ff;
 }
+.warna2 {
+  color: #0D1821, #344966, #B4CDED, #F0F4EF, #BFCC94  ;
+}
 
 .x* {
   border: #ffffff solid 0.01px !important;
 }
 
 :root {
-  --background: #060318;
+  --background: #0D1821;
   --foreground: #f0f3ff;
 }
 
