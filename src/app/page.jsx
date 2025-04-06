@@ -16,17 +16,17 @@ export default function Home() {
       </div>
 
       {/* scroll velocity */}
-      <div className="absolute left-[8.5rem]  -translate-y-1/2 rotate-90 origin-left -z-10 w-[300vh]">
+      <div className="absolute left-[8rem] pb-3 bg-pink-700 -translate-y-1/2 rotate-90 origin-left -z-10 w-[300vh] ">
         <ScrollVelocity2 />
       </div>
-      <div className="absolute right-[8.5rem]  -translate-y-1/2 -rotate-90 origin-right -z-10 w-[300vh]">
+      <div className="absolute right-[8rem] pb-3 bg-pink-700 -translate-y-1/2 -rotate-90 origin-right -z-10 w-[300vh]">
         <ScrollVelocity3 />
       </div>
 
       {/* Halaman pertama */}
       <div className="relative z-10 min-h-screen flex items-center justify-evenly">
         {/* Animasi text dan foto */}
-        <div className="flex md:flex-row items-center gap-x-[22rem]">
+        <div className="flex md:flex-row items-center gap-x-[10rem]">
           {/* Animasi text */}
           <div className="text-[4.5em] text-center md:text-left">
             <AnimatedText />
