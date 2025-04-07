@@ -6,6 +6,7 @@ import Particles from "@/components/Particles/Particles";
 import AnimatedText from "@/components/AnimatedText/AnimatedText";
 import BlurText from "@/components/BlurText/BlurText";
 import GitHubCard from "@/components/GitHubCard/GitHubCard";
+import Carousel from "@/components/Carousel/Carousel";
 
 export default function Home() {
   return (
@@ -17,17 +18,17 @@ export default function Home() {
       </div>
 
       {/* scroll velocity */}
-      <div className="absolute left-[8rem] pb-3 bg-[#B4CDED] text-[#0D1821] -translate-y-1/2 rotate-90 origin-left -z-10 w-[300vh] ">
+      <div className="absolute left-[8rem] pb-3 bg-[#B4CDED] text-[#0D1821] -translate-y-1/2 rotate-90 origin-left -z-10 w-[350vh] ">
         <ScrollVelocity2 />
       </div>
-      <div className="absolute right-[8rem] pb-3 bg-[#B4CDED] text-[#0D1821] -translate-y-1/2 -rotate-90 origin-right -z-10 w-[300vh]">
+      <div className="absolute right-[8rem] pb-3 bg-[#B4CDED] text-[#0D1821] -translate-y-1/2 -rotate-90 origin-right -z-10 w-[350vh]">
         <ScrollVelocity3 />
       </div>
 
       {/* Halaman pertama */}
-      <div className="relative z-10 min-h-screen flex items-center justify-evenly">
+      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center">
         {/* Animasi text dan foto */}
-        <div className="flex md:flex-row items-center gap-x-[10rem] bg-[#344966] px-10 py-6  rounded-3xl cursor-crosshair">
+        <div className="mt-10 mb-5 flex md:flex-row items-center gap-x-[10rem] bg-[#344966] px-10 py-6  rounded-3xl cursor-crosshair">
           {/* Animasi text */}
           <div className="text-[4.5em] text-center md:text-left">
             <AnimatedText />
@@ -43,7 +44,6 @@ export default function Home() {
       {/* Halaman kedua */}
       <div className="h-screen">
         <div>
-          <GitHubCard />
           <BlurText
             text="ME!"
             delay={200}
@@ -58,6 +58,19 @@ export default function Home() {
             direction="bottom"
             className="text-lg mx-60 text-justify leading-loose tracking-wide text-foreground"
           />
+        </div>
+        <div className="flex items-center justify-evenly my-10">
+          <GitHubCard />
+          <div className="">
+            <Carousel
+              baseWidth={350}
+              autoplay={true}
+              autoplayDelay={3000}
+              pauseOnHover={true}
+              loop={true}
+              round={false}
+            />
+          </div>
         </div>
       </div>
       <div className="h-screen"></div>
