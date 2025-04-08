@@ -1,13 +1,31 @@
-import Lanyard from "@/components/Lanyard/Lanyard";
-import ScrollVelocity from "@/components/ScrollVelocity/ScrollVelocity";
-import ScrollVelocity2 from "@/components/ScrollVelocity/ScrollVelocity2";
-import ScrollVelocity3 from "@/components/ScrollVelocity/ScrollVelocity3";
-import Particles from "@/components/Particles/Particles";
-import AnimatedText from "@/components/AnimatedText/AnimatedText";
-import BlurText from "@/components/BlurText/BlurText";
-import GitHubCard from "@/components/GitHubCard/GitHubCard";
-import Carousel from "@/components/Carousel/Carousel";
-import PixelTransition from "@/components/PixelTransition/PixelTransition";
+import dynamic from "next/dynamic";
+
+// Import komponen dengan SSR false
+const PixelTransition = dynamic(
+  () => import("@/components/PixelTransition/PixelTransition"),
+  { ssr: false }
+);
+const AnimatedText = dynamic(
+  () => import("@/components/AnimatedText/AnimatedText"),
+  { ssr: false }
+);
+const ScrollVelocity2 = dynamic(
+  () => import("@/components/ScrollVelocity/ScrollVelocity2"),
+  { ssr: false }
+);
+const ScrollVelocity3 = dynamic(
+  () => import("@/components/ScrollVelocity/ScrollVelocity3"),
+  { ssr: false }
+);
+const GitHubCard = dynamic(() => import("@/components/GitHubCard/GitHubCard"), {
+  ssr: false,
+});
+const Carousel = dynamic(() => import("@/components/Carousel/Carousel"), {
+  ssr: false,
+});
+const BlurText = dynamic(() => import("@/components/BlurText/BlurText"), {
+  ssr: false,
+});
 
 export default function Home() {
   return (
