@@ -47,6 +47,19 @@ const VELOCITY_THRESHOLD = 500;
 const GAP = 16;
 const SPRING_OPTIONS = { type: "spring", stiffness: 300, damping: 30 };
 
+// 🧠 Perbaikan utama: Hook ini akan dipanggil statis
+function useRotateTransforms(x, itemCount, trackItemOffset) {
+  return Array.from({ length: itemCount }, (_, index) => {
+    const range = [
+      -(index + 1) * trackItemOffset,
+      -index * trackItemOffset,
+      -(index - 1) * trackItemOffset,
+    ];
+    const outputRange = [90, 0, -90];
+    return useTransform(x, range, outputRange, { clamp: false });
+  });
+}
+
 export default function Carousel({
   items = DEFAULT_ITEMS,
   baseWidth = 300,
@@ -65,8 +78,13 @@ export default function Carousel({
   const x = useMotionValue(0);
   const [isHovered, setIsHovered] = useState(false);
   const [isResetting, setIsResetting] = useState(false);
-
   const containerRef = useRef(null);
+
+  const rotateYTransforms = useRotateTransforms(
+    x,
+    carouselItems.length,
+    trackItemOffset
+  );
 
   useEffect(() => {
     if (pauseOnHover && containerRef.current) {
@@ -141,16 +159,6 @@ export default function Carousel({
         },
       };
 
-  const rotateYTransforms = carouselItems.map((_, index) => {
-    const range = [
-      -(index + 1) * trackItemOffset,
-      -index * trackItemOffset,
-      -(index - 1) * trackItemOffset,
-    ];
-    const outputRange = [90, 0, -90];
-    return useTransform(x, range, outputRange, { clamp: false });
-  });
-
   return (
     <div
       ref={containerRef}
@@ -188,7 +196,7 @@ export default function Carousel({
             className={`relative shrink-0 flex flex-col ${
               round
                 ? "items-center justify-center text-center bg-[#060606] border-0"
-                : "items-start justify-between  bg-[#344966] border-[#B4CDED] rounded-[12px]"
+                : "items-start justify-between bg-[#344966] border-[#B4CDED] rounded-[12px]"
             } overflow-hidden cursor-grab active:cursor-grabbing`}
             style={{
               width: itemWidth,
