@@ -7,21 +7,22 @@ import AnimatedText from "@/components/AnimatedText/AnimatedText";
 import BlurText from "@/components/BlurText/BlurText";
 import GitHubCard from "@/components/GitHubCard/GitHubCard";
 import Carousel from "@/components/Carousel/Carousel";
+import PixelTransition from "@/components/PixelTransition/PixelTransition";
 
 export default function Home() {
   return (
     /* Div utama */
     <div className="relative">
       {/* Particles sebagai background */}
-      <div className="absolute w-full h-full -z-10">
+      <div className="absolute w-full min-h-screen -z-40 bg-[#0D1821]">
         {/* <Particles moveParticlesOnHover={true} /> */}
       </div>
 
       {/* scroll velocity */}
-      <div className="absolute left-[8rem] pb-3 bg-[#B4CDED] text-[#0D1821] -translate-y-1/2 rotate-90 origin-left -z-10 w-[350vh] ">
+      <div className="absolute left-[8rem] pb-3 bg-[#B4CDED] text-[#0D1821] -translate-y-1/2 rotate-90 origin-left z-20 w-[350vh] ">
         <ScrollVelocity2 />
       </div>
-      <div className="absolute right-[8rem] pb-3 bg-[#B4CDED] text-[#0D1821] -translate-y-1/2 -rotate-90 origin-right -z-10 w-[350vh]">
+      <div className="absolute right-[8rem] pb-3 bg-[#B4CDED] text-[#0D1821] -translate-y-1/2 -rotate-90 origin-right z-20 w-[350vh]">
         <ScrollVelocity3 />
       </div>
 
@@ -35,14 +36,38 @@ export default function Home() {
           </div>
 
           {/* Foto */}
-          <div className="w-[16.7em] p-4">
-            <img src="/assets/mejir.png" alt="atmin" className="rounded-3xl" />
+          <div className="">
+            <PixelTransition
+              firstContent={
+                <img
+                  src="/assets/mejir.png"
+                  alt="atmin"
+                  className="w-full h-full object-cover"
+                />
+              }
+              secondContent={
+                <div className="w-full h-full grid place-items-center bg-[#0D1821] ">
+                  <img
+                    src="/assets/mejir.png"
+                    alt="atmin"
+                    className="w-full h-full object-cover z-20"
+                  />
+                  <p className="absolute font-black text-5xl text-white z-50">
+                    Meow!
+                  </p>
+                </div>
+              }
+              gridSize={3}
+              pixelColor="#ffffff"
+              animationStepDuration={0.4}
+              className="custom-pixel-card"
+            />
           </div>
         </div>
       </div>
 
       {/* Halaman kedua */}
-      <div className="h-screen">
+      <div className="relative z-10 bg-[#0D1821] rounded-b-[9rem] [box-shadow:0_2rem_0_black]">
         <div>
           <BlurText
             text="ME!"
@@ -59,7 +84,7 @@ export default function Home() {
             className="text-lg mx-60 text-justify leading-loose tracking-wide text-foreground"
           />
         </div>
-        <div className="flex items-center justify-evenly my-10">
+        <div className="flex items-center justify-evenly mt-10">
           <GitHubCard />
           <div className="">
             <Carousel
@@ -73,7 +98,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="h-screen"></div>
     </div>
   );
 }
