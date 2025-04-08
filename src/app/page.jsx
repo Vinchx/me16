@@ -42,6 +42,8 @@ const TrueFocus = dynamic(() => import("@/components/TrueFocus/TrueFocus"), {
   ssr: false,
 });
 
+import Image from "next/image";
+
 export default function Home() {
   return (
     /* Div utama */
@@ -72,7 +74,7 @@ export default function Home() {
           <div className="">
             <PixelTransition
               firstContent={
-                <img
+                <image
                   src="/assets/mejir.png"
                   alt="atmin"
                   className="w-full h-full object-cover"
@@ -80,7 +82,7 @@ export default function Home() {
               }
               secondContent={
                 <div className="w-full h-full grid place-items-center bg-[#0D1821] ">
-                  <img
+                  <image
                     src="/assets/New Project 5 ;[D0995BB].gif"
                     alt="atmin"
                     className="w-full h-full object-cover z-20"
