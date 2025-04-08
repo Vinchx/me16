@@ -67,7 +67,7 @@ export default function Home() {
       </div>
 
       {/* Halaman kedua */}
-      <div className="relative z-10 bg-[#0D1821] rounded-b-[9rem] [box-shadow:0_2rem_0_black]">
+      <div className="relative z-10 bg-[#0D1821] rounded-b-[9rem] [box-shadow:0_2rem_0_#BFCC94]">
         <div>
           <BlurText
             text="ME!"
