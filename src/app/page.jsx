@@ -54,10 +54,10 @@ export default function Home() {
       </div>
 
       {/* scroll velocity */}
-      <div className="absolute left-[8rem] pb-3 bg-[#B4CDED] text-[#0D1821] -translate-y-1/2 rotate-90 origin-left z-30 w-[410vh] ">
+      <div className="absolute left-[8rem] pb-3 bg-[#B4CDED] text-[#0D1821] -translate-y-1/2 rotate-90 origin-left z-20 w-[410vh] ">
         <ScrollVelocity2 />
       </div>
-      <div className="absolute right-[8rem] pb-3 bg-[#B4CDED] text-[#0D1821] -translate-y-1/2 -rotate-90 origin-right z-30 w-[410vh]">
+      <div className="absolute right-[8rem] pb-3 bg-[#B4CDED] text-[#0D1821] -translate-y-1/2 -rotate-90 origin-right z-20 w-[410vh]">
         <ScrollVelocity3 />
       </div>
 
@@ -142,12 +142,30 @@ export default function Home() {
       </div>
 
       {/* Halaman ketiga */}
-      <div className="absolute top-[214.5vh] z-20 min-w-full items-center justify-center rounded-b-[6rem] bg-[#f0f3ff]">
+      <div className="absolute top-[214.5vh] z-20 min-w-20 max-w-full grid grid-cols-3 items-center justify-center rounded-b-[6rem] bg-[#f0f3ff] mx-10">
+        <div>
+          <iframe
+            allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+            frameborder="0"
+            height="450"
+            className="w-full max-w-max-[660px] overflow-hidden rounded-[10px]"
+            sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
+            src="https://embed.music.apple.com/id/playlist/wests/pl.u-11zBJ73cNJmG6d4"
+          ></iframe>
+        </div>
         <div className="w-full">
           <Lanyard position={[0, 0, 15]} gravity={[0, -40, 0]} />
         </div>
+        <iframe
+          allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+          frameborder="0"
+          height="450"
+          className="w-full max-w-max-[660px] overflow-hidden rounded-[10px]  "
+          sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
+          src="https://embed.music.apple.com/id/playlist/wests/pl.u-11zBJ73cNJmG6d4"
+        ></iframe>
       </div>
-      <div className="absolute z-10 bg-[#BFCC94] min-h-screen min-w-full top-[310vh]">
+      <div className="absolute z-10 bg-[#BFCC94] min-h-screen min-w-full top-[310vh] flex flex-col items-center justify-center">
         <div></div>
       </div>
     </div>
