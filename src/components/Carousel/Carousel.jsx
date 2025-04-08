@@ -49,13 +49,15 @@ const SPRING_OPTIONS = { type: "spring", stiffness: 300, damping: 30 };
 
 // Custom hook untuk menghasilkan transformasi rotateY
 function useRotateTransforms(x, count, offset) {
-  const transforms = [];
-  for (let i = 0; i < count; i++) {
-    const range = [-(i + 1) * offset, -i * offset, -(i - 1) * offset];
-    const output = [90, 0, -90];
-    transforms.push(useTransform(x, range, output));
-  }
-  return transforms;
+  const transforms = [
+    useTransform(x, [-offset * 1, 0, offset * 1], [90, 0, -90]),
+    useTransform(x, [-offset * 2, -offset * 1, 0], [90, 0, -90]),
+    useTransform(x, [-offset * 3, -offset * 2, -offset * 1], [90, 0, -90]),
+    useTransform(x, [-offset * 4, -offset * 3, -offset * 2], [90, 0, -90]),
+    useTransform(x, [-offset * 5, -offset * 4, -offset * 3], [90, 0, -90]),
+    // tambahkan sebanyak item carousel-mu
+  ];
+  return transforms.slice(0, count);
 }
 
 export default function Carousel({
