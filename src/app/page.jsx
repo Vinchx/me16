@@ -54,10 +54,10 @@ export default function Home() {
       </div>
 
       {/* scroll velocity */}
-      <div className="absolute left-[8rem] pb-3 bg-[#B4CDED] text-[#0D1821] -translate-y-1/2 rotate-90 origin-left z-20 w-[410vh] ">
+      <div className="absolute left-[8rem] pb-3 bg-[#B4CDED] text-[#0D1821] -translate-y-1/2 rotate-90 origin-left z-30 w-[410vh] ">
         <ScrollVelocity2 />
       </div>
-      <div className="absolute right-[8rem] pb-3 bg-[#B4CDED] text-[#0D1821] -translate-y-1/2 -rotate-90 origin-right z-20 w-[410vh]">
+      <div className="absolute right-[8rem] pb-3 bg-[#B4CDED] text-[#0D1821] -translate-y-1/2 -rotate-90 origin-right z-30 w-[410vh]">
         <ScrollVelocity3 />
       </div>
 
@@ -74,19 +74,24 @@ export default function Home() {
           <div className="">
             <PixelTransition
               firstContent={
-                <image
+                <Image
                   src="/assets/mejir.png"
                   alt="atmin"
+                  width={500}
+                  height={500}
                   className="w-full h-full object-cover"
                 />
               }
               secondContent={
                 <div className="w-full h-full grid place-items-center bg-[#0D1821] ">
-                  <image
+                  <Image
                     src="/assets/New Project 5 ;[D0995BB].gif"
                     alt="atmin"
+                    width={500}
+                    height={500}
                     className="w-full h-full object-cover z-20"
                   />
+
                   <p className="absolute font-black text-5xl text-white z-50">
                     Meow!
                   </p>
