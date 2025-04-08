@@ -128,7 +128,7 @@ export default function Home() {
         </div>
         <div className="flex items-center justify-evenly mt-10">
           <GitHubCard />
-          <div className="">
+          <div className="py-10">
             <Carousel
               baseWidth={350}
               autoplay={true}
@@ -142,7 +142,7 @@ export default function Home() {
       </div>
 
       {/* Halaman ketiga */}
-      <div className="absolute top-[214.5vh] z-30 min-w-full grid grid-cols-3 items-center justify-center rounded-b-[6rem] bg-[#f0f3ff]">
+      <div className="absolute top-[216.5vh] min-h-screen z-30 min-w-full grid grid-cols-3 items-center justify-center rounded-b-[6rem] bg-[#f0f3ff]">
         <div>
           <iframe
             allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
@@ -165,7 +165,7 @@ export default function Home() {
           src="https://embed.music.apple.com/id/playlist/wests/pl.u-11zBJ73cNJmG6d4"
         ></iframe>
       </div>
-      <div className="absolute z-10 bg-[#BFCC94] min-h-screen min-w-full top-[310vh] flex flex-col items-center justify-center">
+      <div className="absolute z-10 bg-[#BFCC94] min-h-screen min-w-full top-[312vh] flex flex-col items-center justify-center">
         <div></div>
       </div>
     </div>
