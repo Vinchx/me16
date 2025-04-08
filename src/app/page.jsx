@@ -142,13 +142,13 @@ export default function Home() {
       </div>
 
       {/* Halaman ketiga */}
-      <div className="absolute top-[214.5vh] z-20 min-w-20 max-w-full grid grid-cols-3 items-center justify-center rounded-b-[6rem] bg-[#f0f3ff] mx-10">
+      <div className="absolute top-[214.5vh] z-30 min-w-full grid grid-cols-3 items-center justify-center rounded-b-[6rem] bg-[#f0f3ff]">
         <div>
           <iframe
             allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
             frameborder="0"
             height="450"
-            className="w-full max-w-max-[660px] overflow-hidden rounded-[10px]"
+            className="w-full max-w-max-[660px] overflow-hidden rounded-[10px] px-5"
             sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
             src="https://embed.music.apple.com/id/playlist/wests/pl.u-11zBJ73cNJmG6d4"
           ></iframe>
@@ -160,7 +160,7 @@ export default function Home() {
           allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
           frameborder="0"
           height="450"
-          className="w-full max-w-max-[660px] overflow-hidden rounded-[10px]  "
+          className="w-full max-w-max-[660px] overflow-hidden rounded-[10px]  px-5"
           sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
           src="https://embed.music.apple.com/id/playlist/wests/pl.u-11zBJ73cNJmG6d4"
         ></iframe>
