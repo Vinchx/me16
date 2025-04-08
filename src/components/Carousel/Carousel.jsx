@@ -141,6 +141,16 @@ export default function Carousel({
         },
       };
 
+  const rotateYTransforms = carouselItems.map((_, index) => {
+    const range = [
+      -(index + 1) * trackItemOffset,
+      -index * trackItemOffset,
+      -(index - 1) * trackItemOffset,
+    ];
+    const outputRange = [90, 0, -90];
+    return useTransform(x, range, outputRange, { clamp: false });
+  });
+
   return (
     <div
       ref={containerRef}
@@ -172,54 +182,42 @@ export default function Carousel({
         transition={effectiveTransition}
         onAnimationComplete={handleAnimationComplete}
       >
-        {carouselItems.map((item, index) => {
-          const range = [
-            -(index + 1) * trackItemOffset,
-            -index * trackItemOffset,
-            -(index - 1) * trackItemOffset,
-          ];
-          const outputRange = [90, 0, -90];
-          const rotateY = useTransform(x, range, outputRange, {
-            clamp: false,
-          });
-
-          return (
-            <motion.div
-              key={index}
-              className={`relative shrink-0 flex flex-col ${
-                round
-                  ? "items-center justify-center text-center bg-[#060606] border-0"
-                  : "items-start justify-between  bg-[#344966] border-[#B4CDED] rounded-[12px]"
-              } overflow-hidden cursor-grab active:cursor-grabbing`}
-              style={{
-                width: itemWidth,
-                height: round ? itemWidth : "100%",
-                rotateY: rotateY,
-                ...(round && { borderRadius: "50%" }),
-              }}
-              transition={effectiveTransition}
-            >
-              <div className={`${round ? "p-0 m-0" : "mb-4 p-5"}`}>
-                <span className="flex h-[28px] w-[28px] items-center justify-center rounded-full bg-[#060606]">
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:opacity-80 transition"
-                  >
-                    {item.icon}
-                  </a>
-                </span>
+        {carouselItems.map((item, index) => (
+          <motion.div
+            key={index}
+            className={`relative shrink-0 flex flex-col ${
+              round
+                ? "items-center justify-center text-center bg-[#060606] border-0"
+                : "items-start justify-between  bg-[#344966] border-[#B4CDED] rounded-[12px]"
+            } overflow-hidden cursor-grab active:cursor-grabbing`}
+            style={{
+              width: itemWidth,
+              height: round ? itemWidth : "100%",
+              rotateY: rotateYTransforms[index],
+              ...(round && { borderRadius: "50%" }),
+            }}
+            transition={effectiveTransition}
+          >
+            <div className={`${round ? "p-0 m-0" : "mb-4 p-5"}`}>
+              <span className="flex h-[28px] w-[28px] items-center justify-center rounded-full bg-[#060606]">
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-80 transition"
+                >
+                  {item.icon}
+                </a>
+              </span>
+            </div>
+            <div className="p-5">
+              <div className="mb-1 font-black text-lg text-foreground">
+                {item.title}
               </div>
-              <div className="p-5">
-                <div className="mb-1 font-black text-lg text-foreground">
-                  {item.title}
-                </div>
-                <p className="text-sm text-foreground">{item.description}</p>
-              </div>
-            </motion.div>
-          );
-        })}
+              <p className="text-sm text-foreground">{item.description}</p>
+            </div>
+          </motion.div>
+        ))}
       </motion.div>
 
       <div
