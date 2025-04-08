@@ -1,12 +1,12 @@
+"use client";
+
 import dynamic from "next/dynamic";
 
-// Import komponen dengan SSR false
-const PixelTransition = dynamic(
-  () => import("@/components/PixelTransition/PixelTransition"),
-  { ssr: false }
-);
-const AnimatedText = dynamic(
-  () => import("@/components/AnimatedText/AnimatedText"),
+const Lanyard = dynamic(() => import("@/components/Lanyard/Lanyard"), {
+  ssr: false,
+});
+const ScrollVelocity = dynamic(
+  () => import("@/components/ScrollVelocity/ScrollVelocity"),
   { ssr: false }
 );
 const ScrollVelocity2 = dynamic(
@@ -17,15 +17,26 @@ const ScrollVelocity3 = dynamic(
   () => import("@/components/ScrollVelocity/ScrollVelocity3"),
   { ssr: false }
 );
+const Particles = dynamic(() => import("@/components/Particles/Particles"), {
+  ssr: false,
+});
+const AnimatedText = dynamic(
+  () => import("@/components/AnimatedText/AnimatedText"),
+  { ssr: false }
+);
+const BlurText = dynamic(() => import("@/components/BlurText/BlurText"), {
+  ssr: false,
+});
 const GitHubCard = dynamic(() => import("@/components/GitHubCard/GitHubCard"), {
   ssr: false,
 });
 const Carousel = dynamic(() => import("@/components/Carousel/Carousel"), {
   ssr: false,
 });
-const BlurText = dynamic(() => import("@/components/BlurText/BlurText"), {
-  ssr: false,
-});
+const PixelTransition = dynamic(
+  () => import("@/components/PixelTransition/PixelTransition"),
+  { ssr: false }
+);
 
 export default function Home() {
   return (
