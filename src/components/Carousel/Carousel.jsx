@@ -47,17 +47,15 @@ const VELOCITY_THRESHOLD = 500;
 const GAP = 16;
 const SPRING_OPTIONS = { type: "spring", stiffness: 300, damping: 30 };
 
-// 🧠 Perbaikan utama: Hook ini akan dipanggil statis
-function useRotateTransforms(x, itemCount, trackItemOffset) {
-  return Array.from({ length: itemCount }, (_, index) => {
-    const range = [
-      -(index + 1) * trackItemOffset,
-      -index * trackItemOffset,
-      -(index - 1) * trackItemOffset,
-    ];
-    const outputRange = [90, 0, -90];
-    return useTransform(x, range, outputRange, { clamp: false });
-  });
+// Custom hook untuk menghasilkan transformasi rotateY
+function useRotateTransforms(x, count, offset) {
+  const transforms = [];
+  for (let i = 0; i < count; i++) {
+    const range = [-(i + 1) * offset, -i * offset, -(i - 1) * offset];
+    const output = [90, 0, -90];
+    transforms.push(useTransform(x, range, output));
+  }
+  return transforms;
 }
 
 export default function Carousel({
