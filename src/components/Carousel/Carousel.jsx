@@ -1,11 +1,6 @@
-/*
-	Installed from https://reactbits.dev/tailwind/
-*/
 "use client";
 import { useEffect, useState, useRef } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
-// replace icons with your own if needed
-
 import { FaGithub, FaDiscord, FaLinkedin, FaSteam } from "react-icons/fa";
 import { BiLogoInstagramAlt } from "react-icons/bi";
 
@@ -14,30 +9,35 @@ const DEFAULT_ITEMS = [
     title: "Instagram",
     description: "Follow me for photos and stories.",
     id: 1,
+    url: "https://instagram.com/vinix169",
     icon: <BiLogoInstagramAlt className="h-[16px] w-[16px] text-white" />,
   },
   {
     title: "Github",
     description: "Check out my latest projects and code.",
     id: 2,
+    url: "https://github.com/Vinchx/",
     icon: <FaGithub className="h-[16px] w-[16px] text-white" />,
   },
   {
     title: "Discord",
     description: "Join the community and chat with us.",
     id: 3,
+    url: "https://discord.com/users/vinix16",
     icon: <FaDiscord className="h-[16px] w-[16px] text-white" />,
   },
   {
     title: "Linkedin",
     description: "Connect with me professionally.",
     id: 4,
+    url: "https://linkedin.com/in/yourusername",
     icon: <FaLinkedin className="h-[16px] w-[16px] text-white" />,
   },
   {
     title: "Steam",
     description: "Let’s play — check out my Steam profile.",
     id: 5,
+    url: "https://steamcommunity.com/id/Nzxtvinix",
     icon: <FaSteam className="h-[16px] w-[16px] text-white" />,
   },
 ];
@@ -59,14 +59,15 @@ export default function Carousel({
   const containerPadding = 16;
   const itemWidth = baseWidth - containerPadding * 2;
   const trackItemOffset = itemWidth + GAP;
-
   const carouselItems = loop ? [...items, items[0]] : items;
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const x = useMotionValue(0);
   const [isHovered, setIsHovered] = useState(false);
   const [isResetting, setIsResetting] = useState(false);
 
   const containerRef = useRef(null);
+
   useEffect(() => {
     if (pauseOnHover && containerRef.current) {
       const container = containerRef.current;
@@ -85,12 +86,8 @@ export default function Carousel({
     if (autoplay && (!pauseOnHover || !isHovered)) {
       const timer = setInterval(() => {
         setCurrentIndex((prev) => {
-          if (prev === items.length - 1 && loop) {
-            return prev + 1; // Animate to clone.
-          }
-          if (prev === carouselItems.length - 1) {
-            return loop ? 0 : prev;
-          }
+          if (prev === items.length - 1 && loop) return prev + 1;
+          if (prev === carouselItems.length - 1) return loop ? 0 : prev;
           return prev + 1;
         });
       }, autoplayDelay);
@@ -150,7 +147,7 @@ export default function Carousel({
       className={`relative overflow-hidden p-4 ${
         round
           ? "rounded-full border border-white"
-          : "rounded-[24px] border border-[#B4CDED]"
+          : "rounded-[24px] border-4 border-[#B4CDED]"
       }`}
       style={{
         width: `${baseWidth}px`,
@@ -182,8 +179,10 @@ export default function Carousel({
             -(index - 1) * trackItemOffset,
           ];
           const outputRange = [90, 0, -90];
-          // eslint-disable-next-line react-hooks/rules-of-hooks
-          const rotateY = useTransform(x, range, outputRange, { clamp: false });
+          const rotateY = useTransform(x, range, outputRange, {
+            clamp: false,
+          });
+
           return (
             <motion.div
               key={index}
@@ -202,7 +201,14 @@ export default function Carousel({
             >
               <div className={`${round ? "p-0 m-0" : "mb-4 p-5"}`}>
                 <span className="flex h-[28px] w-[28px] items-center justify-center rounded-full bg-[#060606]">
-                  {item.icon}
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:opacity-80 transition"
+                  >
+                    {item.icon}
+                  </a>
                 </span>
               </div>
               <div className="p-5">
@@ -215,6 +221,7 @@ export default function Carousel({
           );
         })}
       </motion.div>
+
       <div
         className={`flex w-full justify-center ${
           round ? "absolute z-20 bottom-12 left-1/2 -translate-x-1/2" : ""

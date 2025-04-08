@@ -4,10 +4,10 @@
 @tailwind utilities;
 
 .warna {
-  color: #211951, #836FFF, #15f5ba, #f0f3ff;
+  color: #211951, #836fff, #15f5ba, #f0f3ff;
 }
 .warna2 {
-  color: #0D1821, #344966, #B4CDED, #F0F4EF, #BFCC94  ;
+  color: #0D1821, #344966, #B4CDED, #F0F4EF, #BFCC94 ;
 }
 
 .x* {

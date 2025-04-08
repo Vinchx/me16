@@ -22,7 +22,7 @@ export default function GitHubCard() {
   return (
     <div className="flex flex-col md:flex-row gap-4 justify-center items-center py-10">
       {/* GitHub Contribution */}
-      <div className="bg-[#344966] p-4 rounded-xl text-white shadow-md">
+      <div className="bg-[#344966] p-4 rounded-xl border-4 border-[#B4CDED] text-white shadow-md">
         <GitHubCalendar
           username="vinchx"
           transformData={selectLastHalfYear}
