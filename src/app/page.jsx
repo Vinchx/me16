@@ -3,26 +3,43 @@
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 
+// Lazy load komponen
 const HomeMobile = dynamic(() => import("@/app/home/HomeMobile"), {
   ssr: false,
 });
-const HomeDesktop = dynamic(() => import("@/app/home/HomeDesktop"), {
+const HomeDesktop1080 = dynamic(() => import("@/app/home/HomeDesktop1080"), {
+  ssr: false,
+});
+const HomeDesktop1200 = dynamic(() => import("@/app/home/HomeDesktop1200"), {
   ssr: false,
 });
 
 export default function Page() {
-  const [isMobile, setIsMobile] = useState(false);
+  const [screenType, setScreenType] = useState("normal");
 
   useEffect(() => {
     const checkScreen = () => {
-      setIsMobile(window.innerHeight > 1200);
+      const height = window.innerHeight;
+
+      if (height > 1200) {
+        setScreenType("tall");
+      } else if (height < 1080) {
+        setScreenType("compact");
+      } else {
+        setScreenType("normal");
+      }
     };
 
-    checkScreen(); // initial check
+    checkScreen();
     window.addEventListener("resize", checkScreen);
-
     return () => window.removeEventListener("resize", checkScreen);
   }, []);
 
-  return isMobile ? <HomeMobile /> : <HomeDesktop />;
+  return (
+    <>
+      {screenType === "compact" && <HomeMobile />}
+      {screenType === "normal" && <HomeDesktop1080 />}
+      {screenType === "tall" && <HomeDesktop1200 />}
+    </>
+  );
 }
