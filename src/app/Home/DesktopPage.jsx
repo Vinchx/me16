@@ -83,14 +83,14 @@ export default function DesktopPage() {
               secondContent={
                 <div className="w-full h-full grid place-items-center bg-[#0D1821] ">
                   <Image
-                    src="/assets/New Project 5 ;[D0995BB].gif"
+                    src="/assets/atmin2.jpg"
                     alt="atmin"
                     width={500}
                     height={500}
                     className="w-full h-full object-cover z-20"
                   />
 
-                  <p className="absolute font-black text-5xl text-white z-50">
+                  <p className="absolute font-black text-5xl text-white z-50 pt-40">
                     Meow!
                   </p>
                 </div>
