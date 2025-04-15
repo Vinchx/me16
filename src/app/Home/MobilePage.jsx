@@ -8,9 +8,7 @@ export default function MobilePage() {
       <div></div>
       <div></div>
       <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+      <div></div>4
     </div>
   );
 }
