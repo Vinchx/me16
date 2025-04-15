@@ -1,5 +1,3 @@
-"use client";
-
 import dynamic from "next/dynamic";
 
 const Lanyard = dynamic(() => import("@/components/Lanyard/Lanyard"), {
@@ -104,8 +102,10 @@ export default function DesktopPage() {
             />
           </div>
         </div>
-        <h1>{(window.innerWidth,)}</h1>
-        <h1>{(window.innerHeight)}</h1>
+        <h1>{window.innerWidth}</h1>
+        <h1>{window.innerHeight}</h1>
+        <h1>{screen.width}</h1>
+        <h1>{screen.height}</h1>
       </div>
 
       {/* Halaman kedua */}
