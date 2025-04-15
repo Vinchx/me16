@@ -5,7 +5,6 @@ export default function MobilePage() {
       Ini tampilan Mobile 📱
       <div></div>
       <div></div>
-      <div></div>
     </div>
   );
 }
