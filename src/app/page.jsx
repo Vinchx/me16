@@ -11,8 +11,8 @@ export default function Home() {
   useEffect(() => {
     const checkSize = () => {
       const width = window.innerWidth;
-      if (width < 1500) setScreen("mobile");
-      else if (width < 2560) setScreen("desktop");
+      if (width < 1528) setScreen("mobile");
+      else if (width < 2000) setScreen("desktop");
       else setScreen("large");
     };
 
