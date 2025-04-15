@@ -14,7 +14,6 @@ export default function MobilePage() {
       <div></div>
       <div></div>
       <div></div>
-      <div></div>
     </div>
   );
 }
